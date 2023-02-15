@@ -1,4 +1,6 @@
+import java.util.Locale;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -43,7 +45,20 @@ public class Main {
         consumer1.accept("Anna");
         consumer2.accept("Jack");
 
-
+        message.accept("Third Task 1.3;");
+        Function<Double, Long> rounding1 = new Function<>(){
+            @Override
+            public Long apply(Double d){
+                return d.longValue();
+            }
+        };
+        Function<Double,Long> rounding2 = (d)-> {
+            return d.longValue();
+        };
+        Double double1 = 11.222;
+        Double double2 = -244.4455;
+        System.out.println("Long value of ["+double1+"] is [" +rounding1.apply(double1)+"]");
+        System.out.println("Long value of ["+double2+"] is [" +rounding2.apply(double2)+"]");
     }// main
 }// Main
 
