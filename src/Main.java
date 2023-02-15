@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-
+import lesson_23.*;
 
 public class Main {
 
@@ -75,7 +75,18 @@ public class Main {
         System.out.println("Random Number [0-100] is " + randomNumber1.get());
         System.out.println("Random Number [0-100] is " + randomNumber2.get());
 
-        //message.accept("Fifth Task 1.5;");
+        message.accept("Fifth Task 1.5;");
+
+
+        Transport car1 = new Transport("BMW", "x7",10000);
+        Function<Transport,Number> ternaryOperator = x ->{
+            Predicate<? super Transport> condition = x2-> {return x2.getPrice()>1000;};
+            Function<? super Transport,? extends Number> ifTrue = x3 -> x3.getPrice();
+            Function<? super Transport,? extends  Number> ifFalse = x4 -> 0;
+            return (condition.test(x))? ifTrue.apply(x):ifFalse.apply(x);
+        };
+        System.out.println(ternaryOperator.apply(car1));
+
 
     }// main
 }// Main
