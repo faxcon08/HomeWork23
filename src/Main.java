@@ -2,6 +2,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+
 public class Main {
 
     public static void main(String[] args) {
@@ -31,7 +32,16 @@ public class Main {
         System.out.println("'"+number1+"' is Positive: "+isPositive.test(number1));
         System.out.println("'"+number2+"' is Positive: "+isPositive.test(number2));
 
-
+        message.accept("Second Task 1.2;");
+        Consumer<String> consumer1 = new Consumer<String>(){
+            @Override
+            public void accept(String name) {
+                System.out.println("Hellow, "+name);
+            }
+        };
+        Consumer<String> consumer2 = (s)->System.out.println("Hellow, "+s);
+        consumer1.accept("Anna");
+        consumer2.accept("Jack");
 
 
     }// main
