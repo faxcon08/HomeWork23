@@ -1,4 +1,5 @@
 import java.util.Locale;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -59,6 +60,21 @@ public class Main {
         Double double2 = -244.4455;
         System.out.println("Long value of ["+double1+"] is [" +rounding1.apply(double1)+"]");
         System.out.println("Long value of ["+double2+"] is [" +rounding2.apply(double2)+"]");
+
+        message.accept("Fourth Task 1.4;");
+        Supplier<Integer> randomNumber1 = new Supplier<Integer>(){
+            @Override
+            public Integer get() {
+                Random random = new Random();
+                return random.nextInt(101);
+            }
+        };
+        Supplier<Integer> randomNumber2 = ()->{return (new Random()).nextInt(101);};
+        System.out.println("Random Number [0-100] is "+randomNumber1.get());
+        System.out.println("Random Number [0-100] is "+randomNumber2.get());
+
+        //message.accept("Fifth Task 1.5;");
+
     }// main
 }// Main
 
